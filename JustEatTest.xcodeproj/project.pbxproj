@@ -8,11 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		443A217F20B0887E006B6FC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443A217E20B0887E006B6FC8 /* AppDelegate.swift */; };
-		443A218120B0887E006B6FC8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443A218020B0887E006B6FC8 /* ViewController.swift */; };
+		443A218120B0887E006B6FC8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443A218020B0887E006B6FC8 /* MainViewController.swift */; };
 		443A218420B0887E006B6FC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 443A218220B0887E006B6FC8 /* Main.storyboard */; };
 		443A218620B08880006B6FC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 443A218520B08880006B6FC8 /* Assets.xcassets */; };
 		443A218920B08880006B6FC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 443A218720B08880006B6FC8 /* LaunchScreen.storyboard */; };
 		443A219420B08880006B6FC8 /* JustEatTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443A219320B08880006B6FC8 /* JustEatTestTests.swift */; };
+		443A21AA20B09016006B6FC8 /* WebRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443A21A220B09016006B6FC8 /* WebRequest.swift */; };
+		443A21AB20B09016006B6FC8 /* WebResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443A21A320B09016006B6FC8 /* WebResult.swift */; };
+		443A21AC20B09016006B6FC8 /* WebError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443A21A420B09016006B6FC8 /* WebError.swift */; };
+		443A21AD20B09016006B6FC8 /* WebTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443A21A520B09016006B6FC8 /* WebTask.swift */; };
+		443A21AE20B09016006B6FC8 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443A21A620B09016006B6FC8 /* HTTPMethod.swift */; };
+		443A21AF20B09016006B6FC8 /* WebResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443A21A720B09016006B6FC8 /* WebResource.swift */; };
+		443A21B020B09016006B6FC8 /* WebRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443A21A820B09016006B6FC8 /* WebRequestManager.swift */; };
+		443A21B120B09016006B6FC8 /* WebRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443A21A920B09016006B6FC8 /* WebRequestBuilder.swift */; };
+		44A6DD3920B4A80000B2168C /* OutcodeInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A6DD3720B4A80000B2168C /* OutcodeInputViewController.swift */; };
+		44A6DD3A20B4A80000B2168C /* OutcodeInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44A6DD3820B4A80000B2168C /* OutcodeInputViewController.xib */; };
+		44A6DD3D20B4B16500B2168C /* DefaultTestParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A6DD3C20B4B16500B2168C /* DefaultTestParameters.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +39,7 @@
 /* Begin PBXFileReference section */
 		443A217B20B0887E006B6FC8 /* JustEatTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustEatTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		443A217E20B0887E006B6FC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		443A218020B0887E006B6FC8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		443A218020B0887E006B6FC8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		443A218320B0887E006B6FC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		443A218520B08880006B6FC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		443A218820B08880006B6FC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +47,17 @@
 		443A218F20B08880006B6FC8 /* JustEatTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JustEatTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		443A219320B08880006B6FC8 /* JustEatTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustEatTestTests.swift; sourceTree = "<group>"; };
 		443A219520B08880006B6FC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		443A21A220B09016006B6FC8 /* WebRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebRequest.swift; sourceTree = "<group>"; };
+		443A21A320B09016006B6FC8 /* WebResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebResult.swift; sourceTree = "<group>"; };
+		443A21A420B09016006B6FC8 /* WebError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebError.swift; sourceTree = "<group>"; };
+		443A21A520B09016006B6FC8 /* WebTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebTask.swift; sourceTree = "<group>"; };
+		443A21A620B09016006B6FC8 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		443A21A720B09016006B6FC8 /* WebResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebResource.swift; sourceTree = "<group>"; };
+		443A21A820B09016006B6FC8 /* WebRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebRequestManager.swift; sourceTree = "<group>"; };
+		443A21A920B09016006B6FC8 /* WebRequestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebRequestBuilder.swift; sourceTree = "<group>"; };
+		44A6DD3720B4A80000B2168C /* OutcodeInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutcodeInputViewController.swift; sourceTree = "<group>"; };
+		44A6DD3820B4A80000B2168C /* OutcodeInputViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutcodeInputViewController.xib; sourceTree = "<group>"; };
+		44A6DD3C20B4B16500B2168C /* DefaultTestParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultTestParameters.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +99,10 @@
 		443A217D20B0887E006B6FC8 /* JustEatTest */ = {
 			isa = PBXGroup;
 			children = (
+				44A6DD3B20B4B16500B2168C /* Data Models */,
+				443A21A120B09016006B6FC8 /* Networking */,
+				443A219E20B08FDF006B6FC8 /* ViewControllers */,
 				443A217E20B0887E006B6FC8 /* AppDelegate.swift */,
-				443A218020B0887E006B6FC8 /* ViewController.swift */,
 				443A218220B0887E006B6FC8 /* Main.storyboard */,
 				443A218520B08880006B6FC8 /* Assets.xcassets */,
 				443A218720B08880006B6FC8 /* LaunchScreen.storyboard */,
@@ -94,6 +118,39 @@
 				443A219520B08880006B6FC8 /* Info.plist */,
 			);
 			path = JustEatTestTests;
+			sourceTree = "<group>";
+		};
+		443A219E20B08FDF006B6FC8 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				443A218020B0887E006B6FC8 /* MainViewController.swift */,
+				44A6DD3720B4A80000B2168C /* OutcodeInputViewController.swift */,
+				44A6DD3820B4A80000B2168C /* OutcodeInputViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		443A21A120B09016006B6FC8 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				443A21A220B09016006B6FC8 /* WebRequest.swift */,
+				443A21A320B09016006B6FC8 /* WebResult.swift */,
+				443A21A420B09016006B6FC8 /* WebError.swift */,
+				443A21A520B09016006B6FC8 /* WebTask.swift */,
+				443A21A620B09016006B6FC8 /* HTTPMethod.swift */,
+				443A21A720B09016006B6FC8 /* WebResource.swift */,
+				443A21A820B09016006B6FC8 /* WebRequestManager.swift */,
+				443A21A920B09016006B6FC8 /* WebRequestBuilder.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		44A6DD3B20B4B16500B2168C /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				44A6DD3C20B4B16500B2168C /* DefaultTestParameters.swift */,
+			);
+			path = "Data Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				443A218920B08880006B6FC8 /* LaunchScreen.storyboard in Resources */,
+				44A6DD3A20B4A80000B2168C /* OutcodeInputViewController.xib in Resources */,
 				443A218620B08880006B6FC8 /* Assets.xcassets in Resources */,
 				443A218420B0887E006B6FC8 /* Main.storyboard in Resources */,
 			);
@@ -197,8 +255,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				443A218120B0887E006B6FC8 /* ViewController.swift in Sources */,
+				443A21B120B09016006B6FC8 /* WebRequestBuilder.swift in Sources */,
+				443A21AB20B09016006B6FC8 /* WebResult.swift in Sources */,
+				443A21B020B09016006B6FC8 /* WebRequestManager.swift in Sources */,
+				443A218120B0887E006B6FC8 /* MainViewController.swift in Sources */,
+				443A21AC20B09016006B6FC8 /* WebError.swift in Sources */,
+				443A21AE20B09016006B6FC8 /* HTTPMethod.swift in Sources */,
+				443A21AD20B09016006B6FC8 /* WebTask.swift in Sources */,
+				44A6DD3920B4A80000B2168C /* OutcodeInputViewController.swift in Sources */,
+				443A21AF20B09016006B6FC8 /* WebResource.swift in Sources */,
+				443A21AA20B09016006B6FC8 /* WebRequest.swift in Sources */,
 				443A217F20B0887E006B6FC8 /* AppDelegate.swift in Sources */,
+				44A6DD3D20B4B16500B2168C /* DefaultTestParameters.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,7 +359,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -345,7 +413,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -361,6 +429,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X8324R6WH2;
 				INFOPLIST_FILE = JustEatTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -379,6 +448,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X8324R6WH2;
 				INFOPLIST_FILE = JustEatTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
