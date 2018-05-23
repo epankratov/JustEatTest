@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="restaurantCell" rowHeight="96" id="KGk-i7-Jjw" customClass="RestaurantTableViewCell" customModule="JustEatTest" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="75.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurant name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="noM-I9-wbj">
+                        <rect key="frame" x="80" y="4" width="232" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="DtI-y4-dh7"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Availability" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NRg-MI-M9b" userLabel="Label avail">
+                        <rect key="frame" x="80" y="24" width="232" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="Ogx-Y3-feg"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cuisine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdU-j3-nAI" userLabel="Label cuisine">
+                        <rect key="frame" x="80" y="42" width="232" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="LYx-t8-a03"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l34-Ug-hXn">
+                        <rect key="frame" x="8" y="6" width="64" height="64"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="64" id="5UD-4j-hCN"/>
+                            <constraint firstAttribute="height" constant="64" id="gbs-sD-28O"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address: here and there" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSz-tI-O8K" userLabel="Label address">
+                        <rect key="frame" x="80" y="59.5" width="232" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="14" id="lE0-cO-5Xx"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="noM-I9-wbj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="14V-wB-lxi"/>
+                    <constraint firstAttribute="trailing" secondItem="noM-I9-wbj" secondAttribute="trailing" constant="8" id="1Pl-el-3Jw"/>
+                    <constraint firstItem="NRg-MI-M9b" firstAttribute="top" secondItem="noM-I9-wbj" secondAttribute="bottom" constant="2" id="3r9-LQ-HZT"/>
+                    <constraint firstItem="mSz-tI-O8K" firstAttribute="leading" secondItem="l34-Ug-hXn" secondAttribute="trailing" constant="8" id="89s-X0-EHG"/>
+                    <constraint firstItem="l34-Ug-hXn" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="8Qh-lE-9xA"/>
+                    <constraint firstAttribute="trailing" secondItem="mSz-tI-O8K" secondAttribute="trailing" constant="8" id="9MO-EU-fKw"/>
+                    <constraint firstItem="noM-I9-wbj" firstAttribute="leading" secondItem="l34-Ug-hXn" secondAttribute="trailing" constant="8" id="BXJ-ru-0UJ"/>
+                    <constraint firstAttribute="bottom" secondItem="mSz-tI-O8K" secondAttribute="bottom" constant="2" id="D3H-qq-2bw"/>
+                    <constraint firstItem="NRg-MI-M9b" firstAttribute="leading" secondItem="l34-Ug-hXn" secondAttribute="trailing" constant="8" id="Gv6-Gz-fTj"/>
+                    <constraint firstItem="cdU-j3-nAI" firstAttribute="top" secondItem="NRg-MI-M9b" secondAttribute="bottom" constant="2" id="I7i-4u-EFE"/>
+                    <constraint firstItem="l34-Ug-hXn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="J8f-CW-FqY"/>
+                    <constraint firstAttribute="trailing" secondItem="NRg-MI-M9b" secondAttribute="trailing" constant="8" id="agi-l0-n2D"/>
+                    <constraint firstItem="cdU-j3-nAI" firstAttribute="leading" secondItem="l34-Ug-hXn" secondAttribute="trailing" constant="8" id="ayO-eC-eI5"/>
+                    <constraint firstItem="NRg-MI-M9b" firstAttribute="leading" secondItem="l34-Ug-hXn" secondAttribute="trailing" constant="8" id="jPf-A1-4vE"/>
+                    <constraint firstAttribute="trailing" secondItem="cdU-j3-nAI" secondAttribute="trailing" constant="8" id="lBC-ey-a7y"/>
+                    <constraint firstItem="NRg-MI-M9b" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailing" constant="-8" id="wjG-VB-NU6"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="labelAddress" destination="mSz-tI-O8K" id="Qdr-CL-EZ6"/>
+                <outlet property="labelAvailability" destination="NRg-MI-M9b" id="PeF-BQ-JgY"/>
+                <outlet property="labelCuisine" destination="cdU-j3-nAI" id="3qa-ju-gRO"/>
+                <outlet property="labelName" destination="noM-I9-wbj" id="7qv-F8-zSx"/>
+                <outlet property="logoImageView" destination="l34-Ug-hXn" id="fcf-eC-Bbs"/>
+            </connections>
+            <point key="canvasLocation" x="27" y="63"/>
+        </tableViewCell>
+    </objects>
+</document>
