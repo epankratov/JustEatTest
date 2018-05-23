@@ -82,10 +82,10 @@ public class WebRequestManager {
 
         // Error Present
         if let error = error  {
-            let webError = WebError(code: error.code, responseHeaders: httpResponse?.allHeaderFields as? [String: AnyObject], responseData: data)
+            let webError = WebError(code: error.code, responseHeaders: httpResponse?.allHeaderFields as? [String: Any], responseData: data)
             request.completion(.resultError(webError, request))
         } else if !(acceptableStatusCodes ~= statusCode) { // ~= meaning "Range contains"
-            let webError = WebError(code: statusCode, responseHeaders: httpResponse?.allHeaderFields as? [String: AnyObject], responseData: data)
+            let webError = WebError(code: statusCode, responseHeaders: httpResponse?.allHeaderFields as? [String: Any], responseData: data)
             request.completion(.resultError(webError, request))
         } else {
             // parse data
@@ -94,7 +94,7 @@ public class WebRequestManager {
                 if allowedStatusCodesForEmptyResponse.contains(statusCode) {
                     request.completion(.resultSuccess(nil, request, statusCode))
                 } else {
-                    let webError = WebError(code: 1, responseHeaders: httpResponse?.allHeaderFields as? [String: AnyObject], responseData: data)
+                    let webError = WebError(code: 1, responseHeaders: httpResponse?.allHeaderFields as? [String: Any], responseData: data)
                     request.completion(.resultError(webError, request))
                 }
                 return

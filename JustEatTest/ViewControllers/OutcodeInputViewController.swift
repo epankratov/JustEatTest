@@ -37,7 +37,7 @@ class OutcodeInputViewController: UIViewController {
         delegate?.didDismissOutcodeInputView(outcode: (textFieldOutcode?.text!)!)
     }
 
-    @IBAction func didTappedButtonDefault(sender: AnyObject) {
+    @IBAction func didTappedButtonDefault(sender: Any) {
         self.textFieldOutcode?.text = "se19"
     }
 

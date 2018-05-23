@@ -42,6 +42,10 @@ public struct WebResource<A> {
         self.parse = parse
     }
 
+    public init(path: String?, method: HTTPMethod, params: [String : String]?, headers: [String: String]?, parse: @escaping (Data?) -> A?) {
+        self.init(path: path, method: method, params: params, bodyParams: nil, headers: headers, parse: parse)
+    }
+
     public init(path: String?, method: HTTPMethod, params: [String : String]?, parse: @escaping (Data?) -> A?)
     {
         self.init(path: path, method: method, params: params, bodyParams: nil, headers: nil, parse: parse)

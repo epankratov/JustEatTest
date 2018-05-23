@@ -14,7 +14,7 @@ public struct WebError: Error {
     public let code: Int
 
     /// The response headers sent back by the server
-    public let responseHeaders: [String : AnyObject]?
+    public let responseHeaders: [String : Any]?
 
     /// If there was a raw server response you can access it here
     public let responseData: Data?
