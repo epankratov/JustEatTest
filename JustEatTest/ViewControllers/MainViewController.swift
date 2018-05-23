@@ -12,7 +12,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     private var requestManager: WebRequestManager?
     private var outcode: String = "se19"
-    private var restaurants: [String] = []
+    private var restaurants: [Restaurant] = []
 
     @IBOutlet var tableView: UITableView!
 
@@ -20,8 +20,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
 
         self.title = "Restaurants"
-        self.tableView.rowHeight = 60.0
+        self.tableView.rowHeight = 76.0
         self.tableView.separatorColor = UIColor(red: 43.0/255.0, green: 131.0/255.0, blue: 159.0/255.0, alpha: 1)
+        self.tableView.register(UINib(nibName: "RestaurantTableViewCell", bundle: nil), forCellReuseIdentifier: "restaurantCell")
 
         let getRestaurantsButton = UIBarButtonItem(title: "Get restaurants", style: UIBarButtonItemStyle.plain, target: self, action: #selector(getRestaurants(sender:)))
         self.navigationItem.leftBarButtonItem = getRestaurantsButton
@@ -67,35 +68,30 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "DemoCell")
+        let cell:RestaurantTableViewCell = tableView.dequeueReusableCell(withIdentifier: "restaurantCell") as! RestaurantTableViewCell
 
-        if (cell == nil) {
-            cell = UITableViewCell(style: .subtitle, reuseIdentifier: "DemoCell")
-        }
-        var text = ""
-        //        var detailedText = ""
         if (indexPath.row == 0 && self.restaurants.count == 0) {
-            text = "There's no data"
+            cell.restaurant = nil
         } else {
-            text = restaurants[indexPath.row]// ?? ""
-            //            detailedText = restaurants[indexPath.row] ?? ""
+            cell.restaurant = restaurants[indexPath.row]
         }
-        cell!.textLabel!.text = text
-        //        cell!.detailTextLabel!.text = detailedText
-        return cell!
+
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tableView.deselectRow(at: indexPath, animated: true)
     }
 
     // MARK: - Private methods
     private func getRestaurantsList()
     {
         // Configure WEB-resource
-        let headers: [String : String] = ["Accept-Tenant": "uk", "Accept-Language": "en-GB", "Authorization": "Basic VGVjaFRlc3Q6bkQ2NGxXVnZreDVw", "Host": "public.je-apis.com"]
         let restaurantsResource =
             WebResource(path: DefaultTestParameters.defaultRestaurantsEndpoint,
                         method: HTTPMethod.GET,
                         params: self.constructParams(),
-                        bodyParams: nil,
-                        headers: headers) { data -> [String]? in
+                        headers: DefaultTestParameters.defaultHeaders) { data -> [Restaurant]? in
                             guard
                                 let data = data,
                                 let json = try? JSONSerialization.jsonObject(with: data) as! [String: Any],
@@ -103,8 +99,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                                 else {
                                     return nil
                             }
-                            let parsed: [String] = restaurants.compactMap({ item -> String in
-                                return item["Name"] as? String ?? ""
+                            let parsed: [Restaurant] = restaurants.compactMap({ item -> Restaurant in
+                                return Restaurant(item)
                             })
                             return parsed
         }
@@ -126,6 +122,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         task?.resume()
     }
+
     private func constructParams() -> [String: String] {
         return ["q": self.outcode]
     }

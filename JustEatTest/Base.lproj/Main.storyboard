@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="csu-k6-MoC">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="96" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="csu-k6-MoC">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -32,10 +32,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="csu-k6-MoC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="5pl-ka-jRE"/>
-                            <constraint firstAttribute="trailing" secondItem="csu-k6-MoC" secondAttribute="trailing" id="CyK-6w-XDV"/>
-                            <constraint firstItem="csu-k6-MoC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="hp8-8p-Fti"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="csu-k6-MoC" secondAttribute="bottom" id="wkT-bO-whS"/>
+                            <constraint firstAttribute="trailing" secondItem="csu-k6-MoC" secondAttribute="trailing" id="5wg-Mw-xa8"/>
+                            <constraint firstItem="csu-k6-MoC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="RTe-ke-MKi"/>
+                            <constraint firstItem="csu-k6-MoC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="ZWQ-DB-CiC"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="csu-k6-MoC" secondAttribute="bottom" id="gDM-ae-qvE"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -46,7 +46,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="519" y="-405"/>
+            <point key="canvasLocation" x="517.60000000000002" y="-405.24737631184411"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3ub-dG-1Gc">

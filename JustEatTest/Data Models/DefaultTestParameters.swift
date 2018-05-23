@@ -11,4 +11,5 @@ import Foundation
 struct DefaultTestParameters {
     static let defaultAPIServer: String = "https://public.je-apis.com/"
     static let defaultRestaurantsEndpoint: String = "restaurants"
+    static let defaultHeaders: [String: String] = ["Accept-Tenant": "uk", "Accept-Language": "en-GB", "Authorization": "Basic VGVjaFRlc3Q6bkQ2NGxXVnZreDVw", "Host": "public.je-apis.com"]
 }
