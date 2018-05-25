@@ -11,6 +11,7 @@
 		442CF93520B5FD3A00D6B6E4 /* CuisineType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442CF93420B5FD3A00D6B6E4 /* CuisineType.swift */; };
 		442CF93920B5FF8700D6B6E4 /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442CF93720B5FF8700D6B6E4 /* RestaurantTableViewCell.swift */; };
 		442CF93C20B6182200D6B6E4 /* RestaurantTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 442CF93B20B6182200D6B6E4 /* RestaurantTableViewCell.xib */; };
+		442EAABE20B855E00022B9D0 /* empty.png in Resources */ = {isa = PBXBuildFile; fileRef = 442EAABD20B855E00022B9D0 /* empty.png */; };
 		443A217F20B0887E006B6FC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443A217E20B0887E006B6FC8 /* AppDelegate.swift */; };
 		443A218120B0887E006B6FC8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443A218020B0887E006B6FC8 /* MainViewController.swift */; };
 		443A218420B0887E006B6FC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 443A218220B0887E006B6FC8 /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 		44A6DD3920B4A80000B2168C /* OutcodeInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A6DD3720B4A80000B2168C /* OutcodeInputViewController.swift */; };
 		44A6DD3A20B4A80000B2168C /* OutcodeInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44A6DD3820B4A80000B2168C /* OutcodeInputViewController.xib */; };
 		44A6DD3D20B4B16500B2168C /* DefaultTestParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A6DD3C20B4B16500B2168C /* DefaultTestParameters.swift */; };
+		44A78F1420B749F700424D54 /* UIColor+Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A78F1320B749F700424D54 /* UIColor+Extra.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,7 @@
 		442CF93420B5FD3A00D6B6E4 /* CuisineType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisineType.swift; sourceTree = "<group>"; };
 		442CF93720B5FF8700D6B6E4 /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
 		442CF93B20B6182200D6B6E4 /* RestaurantTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestaurantTableViewCell.xib; sourceTree = "<group>"; };
+		442EAABD20B855E00022B9D0 /* empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = empty.png; sourceTree = "<group>"; };
 		443A217B20B0887E006B6FC8 /* JustEatTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustEatTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		443A217E20B0887E006B6FC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		443A218020B0887E006B6FC8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +69,7 @@
 		44A6DD3720B4A80000B2168C /* OutcodeInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutcodeInputViewController.swift; sourceTree = "<group>"; };
 		44A6DD3820B4A80000B2168C /* OutcodeInputViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutcodeInputViewController.xib; sourceTree = "<group>"; };
 		44A6DD3C20B4B16500B2168C /* DefaultTestParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultTestParameters.swift; sourceTree = "<group>"; };
+		44A78F1320B749F700424D54 /* UIColor+Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extra.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		442EAABC20B855E00022B9D0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				442EAABD20B855E00022B9D0 /* empty.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		443A217220B0887E006B6FC8 = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +128,7 @@
 		443A217D20B0887E006B6FC8 /* JustEatTest */ = {
 			isa = PBXGroup;
 			children = (
+				44A78F1220B749DA00424D54 /* Extensions */,
 				44A6DD3B20B4B16500B2168C /* Data Models */,
 				443A21A120B09016006B6FC8 /* Networking */,
 				442CF93620B5FF6300D6B6E4 /* Cells */,
@@ -124,6 +137,7 @@
 				443A218220B0887E006B6FC8 /* Main.storyboard */,
 				443A218520B08880006B6FC8 /* Assets.xcassets */,
 				443A218720B08880006B6FC8 /* LaunchScreen.storyboard */,
+				442EAABC20B855E00022B9D0 /* Resources */,
 				443A218A20B08880006B6FC8 /* Info.plist */,
 			);
 			path = JustEatTest;
@@ -171,6 +185,14 @@
 				442CF93420B5FD3A00D6B6E4 /* CuisineType.swift */,
 			);
 			path = "Data Models";
+			sourceTree = "<group>";
+		};
+		44A78F1220B749DA00424D54 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				44A78F1320B749F700424D54 /* UIColor+Extra.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +281,7 @@
 				442CF93C20B6182200D6B6E4 /* RestaurantTableViewCell.xib in Resources */,
 				443A218620B08880006B6FC8 /* Assets.xcassets in Resources */,
 				443A218420B0887E006B6FC8 /* Main.storyboard in Resources */,
+				442EAABE20B855E00022B9D0 /* empty.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +309,7 @@
 				443A21AE20B09016006B6FC8 /* HTTPMethod.swift in Sources */,
 				443A21AD20B09016006B6FC8 /* WebTask.swift in Sources */,
 				44A6DD3920B4A80000B2168C /* OutcodeInputViewController.swift in Sources */,
+				44A78F1420B749F700424D54 /* UIColor+Extra.swift in Sources */,
 				442CF93920B5FF8700D6B6E4 /* RestaurantTableViewCell.swift in Sources */,
 				443A21AF20B09016006B6FC8 /* WebResource.swift in Sources */,
 				443A21AA20B09016006B6FC8 /* WebRequest.swift in Sources */,
