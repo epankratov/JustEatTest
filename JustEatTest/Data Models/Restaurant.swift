@@ -43,12 +43,23 @@ struct Restaurant {
     }
 
     init(_ jsonDictionary: [String: Any]) {
-        let formatter = ISO8601DateFormatter()
-        let restaurantId = String(describing: jsonDictionary["Id"]!)
-        let name = jsonDictionary["Name"] as! String
-        let cuisineTypes: [CuisineType] = (jsonDictionary["CuisineTypes"] as! [Any]).compactMap { jsonObj -> CuisineType? in
-            let cuisineType = CuisineType(jsonObj as! [String: Any])
-            return cuisineType
+
+        var restaurantId = "0"
+        if let id = jsonDictionary["Id"] {
+            restaurantId = String(describing: id)
+        }
+
+        var name = ""
+        if let nameValue = jsonDictionary["Name"] as? String {
+            name = nameValue
+        }
+
+        var cuisineTypes: [CuisineType] = []
+        if let types = jsonDictionary["CuisineTypes"] as? [Any] {
+            cuisineTypes = types.compactMap { jsonObj -> CuisineType? in
+                let cuisineType = CuisineType(jsonObj as! [String: Any])
+                return cuisineType
+            }
         }
         let address = jsonDictionary["Address"] as? String
         let postcode = jsonDictionary["Postcode"] as? String
@@ -62,6 +73,7 @@ struct Restaurant {
 
         var openingTime = Date.distantPast
         if let openingTimeAsString = jsonDictionary["OpeningTimeIso"] as? String {
+            let formatter = ISO8601DateFormatter()
             if let date = formatter.date(from: openingTimeAsString) {
                 openingTime = date
             }

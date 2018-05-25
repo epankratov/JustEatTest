@@ -1,0 +1,30 @@
+{
+   "OpeningTimeIso":"2018-05-23T10:30:00Z",
+   "RatingAverage":5.25,
+   "Latitude":51.398557,
+   "Longitude":-0.076405,
+   "Id":13620,
+   "Name":"Pizza Plus Pizza",
+   "Address":"2 High Street",
+   "Postcode":"SE25 6EP",
+   "City":"South Norwood",
+   "CuisineTypes":[
+      {
+         "Id":82,
+         "Name":"Pizza",
+         "SeoName":"pizza"
+      },
+      {
+         "Id":79,
+         "Name":"Chicken",
+         "SeoName":"chicken"
+      }
+   ],
+   "Url":"https://www.just-eat.co.uk/restaurants-pizzapluspizzase25",
+   "IsOpenNow":true,
+   "Logo":[
+      {
+         "StandardResolutionURL":"http://d30v2pzvrfyzpo.cloudfront.net/uk/images/restaurants/13620.gif"
+      }
+   ],
+}

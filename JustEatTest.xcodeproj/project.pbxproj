@@ -12,12 +12,13 @@
 		442CF93920B5FF8700D6B6E4 /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442CF93720B5FF8700D6B6E4 /* RestaurantTableViewCell.swift */; };
 		442CF93C20B6182200D6B6E4 /* RestaurantTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 442CF93B20B6182200D6B6E4 /* RestaurantTableViewCell.xib */; };
 		442EAABE20B855E00022B9D0 /* empty.png in Resources */ = {isa = PBXBuildFile; fileRef = 442EAABD20B855E00022B9D0 /* empty.png */; };
+		442EAAC020B868F70022B9D0 /* RestaurantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442EAABF20B868F70022B9D0 /* RestaurantTests.swift */; };
+		442EAAC220B86E5F0022B9D0 /* valid-value.json in Resources */ = {isa = PBXBuildFile; fileRef = 442EAAC120B86E5F0022B9D0 /* valid-value.json */; };
 		443A217F20B0887E006B6FC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443A217E20B0887E006B6FC8 /* AppDelegate.swift */; };
 		443A218120B0887E006B6FC8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443A218020B0887E006B6FC8 /* MainViewController.swift */; };
 		443A218420B0887E006B6FC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 443A218220B0887E006B6FC8 /* Main.storyboard */; };
 		443A218620B08880006B6FC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 443A218520B08880006B6FC8 /* Assets.xcassets */; };
 		443A218920B08880006B6FC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 443A218720B08880006B6FC8 /* LaunchScreen.storyboard */; };
-		443A219420B08880006B6FC8 /* JustEatTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443A219320B08880006B6FC8 /* JustEatTestTests.swift */; };
 		443A21AA20B09016006B6FC8 /* WebRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443A21A220B09016006B6FC8 /* WebRequest.swift */; };
 		443A21AB20B09016006B6FC8 /* WebResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443A21A320B09016006B6FC8 /* WebResult.swift */; };
 		443A21AC20B09016006B6FC8 /* WebError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443A21A420B09016006B6FC8 /* WebError.swift */; };
@@ -48,6 +49,8 @@
 		442CF93720B5FF8700D6B6E4 /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
 		442CF93B20B6182200D6B6E4 /* RestaurantTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestaurantTableViewCell.xib; sourceTree = "<group>"; };
 		442EAABD20B855E00022B9D0 /* empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = empty.png; sourceTree = "<group>"; };
+		442EAABF20B868F70022B9D0 /* RestaurantTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTests.swift; sourceTree = "<group>"; };
+		442EAAC120B86E5F0022B9D0 /* valid-value.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "valid-value.json"; sourceTree = "<group>"; };
 		443A217B20B0887E006B6FC8 /* JustEatTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustEatTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		443A217E20B0887E006B6FC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		443A218020B0887E006B6FC8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -56,7 +59,6 @@
 		443A218820B08880006B6FC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		443A218A20B08880006B6FC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		443A218F20B08880006B6FC8 /* JustEatTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JustEatTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		443A219320B08880006B6FC8 /* JustEatTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustEatTestTests.swift; sourceTree = "<group>"; };
 		443A219520B08880006B6FC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		443A21A220B09016006B6FC8 /* WebRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebRequest.swift; sourceTree = "<group>"; };
 		443A21A320B09016006B6FC8 /* WebResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebResult.swift; sourceTree = "<group>"; };
@@ -146,7 +148,8 @@
 		443A219220B08880006B6FC8 /* JustEatTestTests */ = {
 			isa = PBXGroup;
 			children = (
-				443A219320B08880006B6FC8 /* JustEatTestTests.swift */,
+				442EAAC120B86E5F0022B9D0 /* valid-value.json */,
+				442EAABF20B868F70022B9D0 /* RestaurantTests.swift */,
 				443A219520B08880006B6FC8 /* Info.plist */,
 			);
 			path = JustEatTestTests;
@@ -289,6 +292,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				442EAAC220B86E5F0022B9D0 /* valid-value.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,7 +326,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				443A219420B08880006B6FC8 /* JustEatTestTests.swift in Sources */,
+				442EAAC020B868F70022B9D0 /* RestaurantTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
