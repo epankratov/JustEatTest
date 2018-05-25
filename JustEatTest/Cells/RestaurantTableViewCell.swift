@@ -52,7 +52,7 @@ let imageCache = NSCache<NSString, UIImage>()
 
 extension RestaurantTableViewCell {
 
-    func loadLogoImage() {
+    private func loadLogoImage() {
         guard let logoUrl = self.restaurant?.logoUrl else {
             self.logoImageView.image = nil
             return

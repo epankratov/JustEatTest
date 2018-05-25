@@ -21,6 +21,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="oDa-k5-pxF">
+                                <rect key="frame" x="169" y="283" width="37" height="37"/>
+                                <color key="color" red="0.66296296300000002" green="0.14074074070000001" blue="0.074074074069999996" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="96" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="csu-k6-MoC">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -29,18 +33,29 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="MAQ-Xl-Ohd"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z4t-6C-29N">
+                                <rect key="frame" x="0.0" y="286" width="375" height="30"/>
+                                <state key="normal" title="Press to load"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="csu-k6-MoC" secondAttribute="trailing" id="5wg-Mw-xa8"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="csu-k6-MoC" secondAttribute="bottom" id="FNl-U6-WvK"/>
+                            <constraint firstItem="Z4t-6C-29N" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="NDN-G5-291"/>
+                            <constraint firstItem="oDa-k5-pxF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OIQ-8Z-MY1"/>
+                            <constraint firstItem="oDa-k5-pxF" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="QUi-tu-m2W"/>
                             <constraint firstItem="csu-k6-MoC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="RTe-ke-MKi"/>
-                            <constraint firstItem="csu-k6-MoC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="ZWQ-DB-CiC"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="csu-k6-MoC" secondAttribute="bottom" id="gDM-ae-qvE"/>
+                            <constraint firstAttribute="trailing" secondItem="Z4t-6C-29N" secondAttribute="trailing" id="nbs-Aj-6h8"/>
+                            <constraint firstItem="csu-k6-MoC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="qcr-Vv-1ka"/>
+                            <constraint firstItem="Z4t-6C-29N" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="xlW-z0-AGa"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="aQa-3N-a7d"/>
                     <connections>
+                        <outlet property="activityView" destination="oDa-k5-pxF" id="HQK-hN-7zi"/>
+                        <outlet property="loadDataButton" destination="Z4t-6C-29N" id="XY8-xR-DwE"/>
                         <outlet property="tableView" destination="csu-k6-MoC" id="Ysa-s5-H3h"/>
                     </connections>
                 </viewController>

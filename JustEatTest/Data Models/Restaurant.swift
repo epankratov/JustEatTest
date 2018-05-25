@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct Restaurant {
     var restaurantId: String
@@ -18,15 +19,14 @@ struct Restaurant {
     var ratingAverage: Float64
     var isOpen: Bool
     var openingTime: Date?
-    var latitude: Float64?
-    var longitude: Float64?
+    var location: CLLocation?
     var url: String?
     var logoUrl: String?
 
     init(restaurantId: String, name: String, cuisineTypes: [CuisineType],
          address: String?, postcode: String?, city: String?,
          ratingAverage: Float64, isOpen: Bool, openingTime: Date?,
-         latitude: Float64?, longitude: Float64?,
+         location: CLLocation?,
          url: String?, logoUrl: String?) {
         self.restaurantId = restaurantId
         self.name = name
@@ -37,8 +37,7 @@ struct Restaurant {
         self.ratingAverage = ratingAverage
         self.isOpen = isOpen
         self.openingTime = openingTime
-        self.latitude = latitude
-        self.longitude = longitude
+        self.location = location
         self.url = url
         self.logoUrl = logoUrl
     }
@@ -56,8 +55,10 @@ struct Restaurant {
         let city = jsonDictionary["City"] as? String
         let ratingAverage = jsonDictionary["RatingAverage"] as? Float64 ?? 0.0
         let isOpen = jsonDictionary["IsOpenNow"] as? Bool ?? false
-        let latitude = jsonDictionary["Latitude"] as? Float64 ?? 0.0
-        let longitude = jsonDictionary["Longitude"] as? Float64 ?? 0.0
+        var location: CLLocation?
+        if let latitude = jsonDictionary["Latitude"] as? Float64, let longitude = jsonDictionary["Longitude"] as? Float64 {
+            location = CLLocation(latitude: latitude, longitude: longitude)
+        }
 
         var openingTime = Date.distantPast
         if let openingTimeAsString = jsonDictionary["OpeningTimeIso"] as? String {
@@ -80,8 +81,7 @@ struct Restaurant {
                   ratingAverage: ratingAverage,
                   isOpen: isOpen,
                   openingTime: openingTime,
-                  latitude: latitude,
-                  longitude: longitude,
+                  location: location,
                   url: url,
                   logoUrl: logoUrl)
     }

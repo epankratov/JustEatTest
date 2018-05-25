@@ -7,42 +7,80 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 
-class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, OutcodeInputViewControllerDelegate {
+class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, OutcodeInputViewControllerDelegate {
 
     private var requestManager: WebRequestManager?
     private var outcode: String = "se19"
     private var restaurants: [Restaurant] = []
+    private let locationManager = CLLocationManager()
+    private var location: CLLocation?
 
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var activityView: UIActivityIndicatorView!
+    @IBOutlet var loadDataButton: UIButton!
+
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:#selector(self.refreshRestaurants(sender:)), for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = UIColor.BlueGrey()
+        return refreshControl
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Ask for authorization on CoreLocation services from the user
+        self.locationManager.requestAlwaysAuthorization()
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+
+        // Setup activity view and hide it
+        self.view.bringSubview(toFront: self.activityView)
+        self.activityView.color = UIColor.BlueGrey()
+        self.activityView.hidesWhenStopped = true
+        self.activityView.stopAnimating()
+
+        self.loadDataButton.addTarget(self, action:#selector(self.refreshRestaurants(sender:)), for: .touchUpInside)
+
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            // For restaurants search, we don't need more precise
+            locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
+            locationManager.startUpdatingLocation()
+        }
+
         self.title = "Restaurants"
+
         self.tableView.rowHeight = 76.0
         self.tableView.separatorColor = UIColor(red: 43.0/255.0, green: 131.0/255.0, blue: 159.0/255.0, alpha: 1)
         self.tableView.register(UINib(nibName: "RestaurantTableViewCell", bundle: nil), forCellReuseIdentifier: "restaurantCell")
+        self.tableView.addSubview(self.refreshControl)
 
-        let getRestaurantsButton = UIBarButtonItem(title: "Get restaurants", style: UIBarButtonItemStyle.plain, target: self, action: #selector(getRestaurants(sender:)))
+        let getRestaurantsButton = UIBarButtonItem(title: "Near you", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.getNearestRestaurants(sender:)))
         self.navigationItem.leftBarButtonItem = getRestaurantsButton
-        let outcodeButton = UIBarButtonItem(title: "Outcode", style: UIBarButtonItemStyle.plain, target: self, action: #selector(presentOutcodeInputView(sender:)))
+        let outcodeButton = UIBarButtonItem(title: "Outcode", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.presentOutcodeInputView(sender:)))
         self.navigationItem.rightBarButtonItem = outcodeButton
 
         // Use single connection per host for current configuration
         let configuration = URLSessionConfiguration.default
         configuration.httpMaximumConnectionsPerHost = 1
-
-        // Instantiate WebRequestManager
-        requestManager = WebRequestManager(config: configuration, acceptableStatusCodes: 200..<300)
+        // Save an instance of WebRequestManager
+        self.requestManager = WebRequestManager(config: configuration, acceptableStatusCodes: 200..<300)
     }
 
     // MARK: - User actions
-    @objc private func getRestaurants(sender: UIBarButtonItem) {
+    @objc func getNearestRestaurants(sender: UIBarButtonItem) {
+        self.getRestaurantsList(location: self.location)
+    }
+
+    @objc func refreshRestaurants(sender: UIButton!) {
         self.getRestaurantsList()
     }
 
-    @objc private func presentOutcodeInputView(sender: UIBarButtonItem) {
+    @objc func presentOutcodeInputView(sender: UIBarButtonItem) {
         let outcodeInputViewController = OutcodeInputViewController(nibName: "OutcodeInputViewController", bundle: nil)
         outcodeInputViewController.delegate = self
         outcodeInputViewController.modalTransitionStyle = UIModalTransitionStyle.coverVertical
@@ -64,28 +102,50 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.restaurants.count == 0 ? 1 : self.restaurants.count;
+        return self.restaurants.count;
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:RestaurantTableViewCell = tableView.dequeueReusableCell(withIdentifier: "restaurantCell") as! RestaurantTableViewCell
 
-        if (indexPath.row == 0 && self.restaurants.count == 0) {
-            cell.restaurant = nil
+        cell.logoImageView?.image = nil
+        cell.logoImageView?.image = UIImage(named: "empty")
+        cell.restaurant = restaurants[indexPath.row]
+
+        if (indexPath.row % 2 != 0) {
+            cell.backgroundColor = UIColor.AmbientGray();
         } else {
-            cell.restaurant = restaurants[indexPath.row]
+            cell.backgroundColor = UIColor.white;
         }
 
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.01
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
 
+    // MARK: - Location services methods
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location: CLLocation = manager.location else {
+            return
+        }
+        self.location = manager.location
+        print("location = \(location.coordinate.latitude) \(location.coordinate.longitude)")
+    }
+
     // MARK: - Private methods
-    private func getRestaurantsList()
-    {
+
+    private func getRestaurantsList(location: CLLocation? = nil) {
+        self.activityView.startAnimating()
+        self.restaurants = []
+        self.tableView.reloadData()
+
         // Configure WEB-resource
         let restaurantsResource =
             WebResource(path: DefaultTestParameters.defaultRestaurantsEndpoint,
@@ -102,22 +162,41 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                             let parsed: [Restaurant] = restaurants.compactMap({ item -> Restaurant in
                                 return Restaurant(item)
                             })
-                            return parsed
+                            guard let userLocation = location else {
+                                return parsed
+                            }
+                            let filtered = parsed.filter({ restaurant -> Bool in
+                                guard let restaurantLocation = restaurant.location else {
+                                    return false
+                                }
+                                let distance = userLocation.distance(from:restaurantLocation)
+                                return distance < 1000
+                            })
+                            return filtered
         }
 
         let task = requestManager?.request(URL(string:DefaultTestParameters.defaultAPIServer)!, resource: restaurantsResource) { [weak self] result -> Void in
-            switch result {
-            case .resultSuccess(let resultData, _, _):
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                self?.activityView.stopAnimating()
+                self?.refreshControl.endRefreshing()
+                switch result {
+                case .resultSuccess(let resultData, _, _):
                     self?.restaurants = resultData!
                     self?.tableView.reloadData()
+                    if let count = self?.restaurants.count, count > 0 {
+                        self?.loadDataButton.isHidden = true
+                    } else {
+                        self?.loadDataButton.isHidden = false
+                    }
+                    break
+                case .resultError(let error, _):
+                    let alertController = UIAlertController(title: "Warning", message: error.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                    self?.present(alertController, animated: true, completion: nil)
+                    print(error.localizedDescription)
+                    self?.loadDataButton.isHidden = false
+                    self?.tableView.reloadData()
+                    break
                 }
-                break
-            case .resultError(let error, _):
-                DispatchQueue.main.async {
-                    print(error)
-                }
-                break
             }
         }
         task?.resume()
