@@ -28,7 +28,7 @@ class OutcodeInputViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let dismissButton = UIBarButtonItem(title: "Dismiss", style: UIBarButtonItemStyle.plain, target: self, action: #selector(dismissOoutcodeInputView(sender:)))
+        let dismissButton = UIBarButtonItem(title: "Dismiss", style: UIBarButtonItem.Style.plain, target: self, action: #selector(dismissOoutcodeInputView(sender:)))
         self.navigationItem.leftBarButtonItem = dismissButton
     }
 

@@ -46,82 +46,82 @@ extension UIColor {
     }
 
     static func Red() -> UIColor {
-        return self.init(rgb: 0xF44336)
+        return UIColor.init(rgb: 0xF44336)
     }
 
     static func Pink() -> UIColor {
-        return self.init(rgb: 0xE91E63)
+        return UIColor.init(rgb: 0xE91E63)
     }
 
     static func Purple() -> UIColor {
-        return self.init(rgb: 0x9C27B0)
+        return UIColor.init(rgb: 0x9C27B0)
     }
 
     static func DeepPurple() -> UIColor {
-        return self.init(rgb: 0x067AB7)
+        return UIColor.init(rgb: 0x067AB7)
     }
 
     static func Indigo() -> UIColor {
-        return self.init(rgb: 0x3F51B5)
+        return UIColor.init(rgb: 0x3F51B5)
     }
 
     static func Blue() -> UIColor {
-        return self.init(rgb: 0x2196F3)
+        return UIColor.init(rgb: 0x2196F3)
     }
 
     static func LightBlue() -> UIColor {
-        return self.init(rgb: 0x03A9F4)
+        return UIColor.init(rgb: 0x03A9F4)
     }
 
     static func Cyan() -> UIColor {
-        return self.init(rgb: 0x00BCD4)
+        return UIColor.init(rgb: 0x00BCD4)
     }
 
     static func Teal() -> UIColor {
-        return self.init(rgb: 0x009688)
+        return UIColor.init(rgb: 0x009688)
     }
 
     static func Green() -> UIColor {
-        return self.init(rgb: 0x4CAF50)
+        return UIColor.init(rgb: 0x4CAF50)
     }
 
     static func LightGreen() -> UIColor {
-        return self.init(rgb: 0x8BC34A)
+        return UIColor.init(rgb: 0x8BC34A)
     }
 
     static func Lime() -> UIColor {
-        return self.init(rgb: 0xCDDC39)
+        return UIColor.init(rgb: 0xCDDC39)
     }
 
     static func Yellow() -> UIColor {
-        return self.init(rgb: 0xFFEB3B)
+        return UIColor.init(rgb: 0xFFEB3B)
     }
 
     static func Amber() -> UIColor {
-        return self.init(rgb: 0xFFC107)
+        return UIColor.init(rgb: 0xFFC107)
     }
 
     static func Orange() -> UIColor {
-        return self.init(rgb: 0xFF9800)
+        return UIColor.init(rgb: 0xFF9800)
     }
 
     static func DeepOrange() -> UIColor {
-        return self.init(rgb: 0xFF5722)
+        return UIColor.init(rgb: 0xFF5722)
     }
 
     static func Brown() -> UIColor {
-        return self.init(rgb: 0x795548)
+        return UIColor.init(rgb: 0x795548)
     }
 
     static func Grey() -> UIColor {
-        return self.init(rgb: 0x9E9E9E)
+        return UIColor.init(rgb: 0x9E9E9E)
     }
 
     static func BlueGrey() -> UIColor {
-        return self.init(rgb: 0x607D8B)
+        return UIColor.init(rgb: 0x607D8B)
     }
 
     static func AmbientGray() -> UIColor {
-        return self.init(rgb: 0xEDF1F2)
+        return UIColor.init(rgb: 0xEDF1F2)
     }
 }

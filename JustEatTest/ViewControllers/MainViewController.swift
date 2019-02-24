@@ -24,7 +24,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action:#selector(self.refreshRestaurants(sender:)), for: UIControlEvents.valueChanged)
+        refreshControl.addTarget(self, action:#selector(self.refreshRestaurants(sender:)), for: UIControl.Event.valueChanged)
         refreshControl.tintColor = UIColor.BlueGrey()
         return refreshControl
     }()
@@ -38,7 +38,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.locationManager.requestWhenInUseAuthorization()
 
         // Setup activity view and hide it
-        self.view.bringSubview(toFront: self.activityView)
+        self.view.bringSubviewToFront(self.activityView)
         self.activityView.color = UIColor.BlueGrey()
         self.activityView.hidesWhenStopped = true
         self.activityView.stopAnimating()
@@ -59,9 +59,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tableView.register(UINib(nibName: "RestaurantTableViewCell", bundle: nil), forCellReuseIdentifier: "restaurantCell")
         self.tableView.addSubview(self.refreshControl)
 
-        let getRestaurantsButton = UIBarButtonItem(title: "Near you", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.getNearestRestaurants(sender:)))
+        let getRestaurantsButton = UIBarButtonItem(title: "Near you", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.getNearestRestaurants(sender:)))
         self.navigationItem.leftBarButtonItem = getRestaurantsButton
-        let outcodeButton = UIBarButtonItem(title: "Outcode", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.presentOutcodeInputView(sender:)))
+        let outcodeButton = UIBarButtonItem(title: "Outcode", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.presentOutcodeInputView(sender:)))
         self.navigationItem.rightBarButtonItem = outcodeButton
 
         // Use single connection per host for current configuration
@@ -190,7 +190,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                     }
                     break
                 case .resultError(let error, _):
-                    let alertController = UIAlertController(title: "Warning", message: error.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                    let alertController = UIAlertController(title: "Warning", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
                     self?.present(alertController, animated: true, completion: nil)
                     print(error.localizedDescription)
                     self?.loadDataButton.isHidden = false
